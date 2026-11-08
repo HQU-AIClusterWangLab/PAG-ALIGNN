@@ -1,0 +1,5 @@
+index,condition,display_name,labels,expected_samples,label_unique_uids,removed_vs_raw_2001,extra_vs_raw_2001,note
+00,raw_2001,raw 2001,static_lattice_polarizability_tensors.csv,2001,2001,0,0,Uncleaned full label dataset.
+01,cleaned_1563,cleaned 1563,inplane_anisotropy_cleaned_labels_exclude_C0_C1_C6E0.csv,1563,1563,438,0,"Stronger cleaning: exclude C0, C1, and C6E0."
+02,cleaned_1801,cleaned 1801,inplane_anisotropy_cleaned_labels_exclude_C0_C1_C6M1.csv,1801,1801,200,0,"Candidate final dataset: exclude C0, C1, and C6M1."
+03,cleaned_1642,cleaned 1642,inplane_anisotropy_cleaned_labels_exclude_C0_C1_C6M1_C6M2E0E1.csv,1642,1642,359,0,More aggressive cleaning: 1801 exclusions plus C6M2E0E1.

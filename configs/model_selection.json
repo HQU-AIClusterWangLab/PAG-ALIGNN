@@ -1,0 +1,13 @@
+{
+  "model": "PAG-ALIGNN",
+  "regression": {
+    "eta": "models/eta/folds",
+    "inplane": "models/inplane/folds",
+    "outplane_zz": "models/outplane_zz/folds",
+    "outplane_aux": "models/outplane_aux/folds"
+  },
+  "classification": "models/classification/weighted_fusion/fusion_classifier_manifest.json",
+  "tensor_predictions": "supplementary_data/D07_tensor_predictions.csv",
+  "eta_predictions": "supplementary_data/D08_eta_predictions.csv",
+  "route_predictions": "supplementary_data/D01_routed_predictions.csv"
+}

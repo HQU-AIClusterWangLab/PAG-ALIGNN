@@ -1,0 +1,29 @@
+{
+  "model": "PAG-ALIGNN classification gate",
+  "n_samples": 1998,
+  "fusion_formula": {
+    "p_final": "0.96 * p_cat_gate_a + 0.04 * p_alignn",
+    "cat_weight": 0.96,
+    "alignn_weight": 0.04,
+    "decision_threshold": 0.06761944,
+    "positive_if": "p_final >= 0.06761944"
+  },
+  "confusion_matrix": {
+    "tn": 1587,
+    "fp": 215,
+    "fn": 17,
+    "tp": 179
+  },
+  "operating_point": {
+    "source": "supplementary_data/D12_fusion_search.csv",
+    "constraint": "FN <= 17",
+    "tn": 1587,
+    "fp": 215,
+    "fn": 17,
+    "tp": 179,
+    "positive_recall": 0.9132653061224489,
+    "negative_retention": 0.8806881243063263,
+    "precision": 0.4543147208121827,
+    "f1": 0.6067796610169491
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "model_type": "weighted_catboost_gate_a_alignn_classifier",
+  "label_definition": {
+    "positive_class": "alpha_inplane = (xx + yy) / 2 > 16.1",
+    "negative_class": "alpha_inplane <= 16.1"
+  },
+  "fusion_formula": {
+    "p_final": "0.96 * p_cat_gate_a + 0.04 * p_alignn",
+    "cat_weight": 0.96,
+    "alignn_weight": 0.04,
+    "decision_threshold": 0.06761944,
+    "positive_if": "p_final >= 0.06761944"
+  },
+  "selected_from_oof": {
+    "source": "supplementary_data/D12_fusion_search.csv",
+    "constraint": "FN <= 17",
+    "tn": 1587,
+    "fp": 215,
+    "fn": 17,
+    "tp": 179,
+    "positive_recall": 0.9132653061224489,
+    "negative_retention": 0.8806881243063263,
+    "precision": 0.4543147208121827,
+    "f1": 0.6067796610169491
+  },
+  "catboost_gate_a": {
+    "model_file": "models/classification/catboost_gate_a/gate_a_high_alpha_classifier.cbm",
+    "manifest_file": "configs/classification/catboost.json",
+    "feature_columns": [
+      "natoms",
+      "nspecies",
+      "a_len",
+      "b_len",
+      "thickness",
+      "gamma_angle",
+      "area_2d",
+      "area_per_atom",
+      "buckling",
+      "nn_dist_mean",
+      "nn_dist_std",
+      "nn_dist_min",
+      "nn_dist_max",
+      "bond_count",
+      "bond_len_mean",
+      "bond_len_std",
+      "bond_len_min",
+      "bond_len_max",
+      "coord_mean",
+      "coord_std",
+      "coord_min",
+      "coord_max",
+      "bond_angle_mean",
+      "bond_angle_std",
+      "bond_angle_min",
+      "bond_angle_max",
+      "mass_avg",
+      "mass_min",
+      "mass_max",
+      "mass_var",
+      "atomic_number_mean",
+      "atomic_number_min",
+      "atomic_number_max",
+      "atomic_number_var",
+      "light_element_fraction",
+      "heavy_element_fraction",
+      "en_atom_mean",
+      "en_atom_std",
+      "en_diff_mean",
+      "en_diff_max",
+      "en_diff_var",
+      "is_ionic_like",
+      "group_mean",
+      "group_std",
+      "valence_proxy_mean",
+      "valence_proxy_max",
+      "valence_proxy_var",
+      "gap_pbe",
+      "alphax_el",
+      "alphay_el",
+      "alphaz_el",
+      "alpha_el_mean_diag",
+      "layergroup",
+      "pointgroup",
+      "has_inversion_symmetry",
+      "is_janus_like",
+      "has_out_of_plane_dipole"
+    ],
+    "categorical_features": [
+      "layergroup",
+      "pointgroup"
+    ],
+    "probability_name": "p_cat_gate_a",
+    "probability_expression": "gate_a_model.predict_proba(X)[:, 1]"
+  },
+  "alignn_classifier": {
+    "run_dir": "models/classification/alignn_gate_full",
+    "config": "models/classification/alignn_gate_full/config.json",
+    "best_model": "models/classification/alignn_gate_full/best_model.pt",
+    "probability_name": "p_alignn",
+    "note": "Full-data ALIGNN gate checkpoint is included in this bundle and referenced by this manifest."
+  },
+  "prediction": {
+    "script": "predict.py",
+    "probability_fusion_script": "code/scripts/classification/predict_cat_alignn_fusion.py",
+    "required_inputs": [
+      "CatBoost descriptor CSV",
+      "Structures JSON or POSCAR directory",
+      "ALIGNN auxiliary descriptor CSV"
+    ],
+    "output_columns": [
+      "sample_id",
+      "p_cat_gate_a",
+      "p_alignn",
+      "p_final",
+      "prediction"
+    ]
+  }
+}

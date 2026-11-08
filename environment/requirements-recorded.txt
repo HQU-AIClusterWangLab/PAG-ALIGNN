@@ -1,0 +1,19 @@
+# Versions observed in the inspected working environment; GPU wheel sources are platform-specific.
+torch==2.1.2+cu121
+dgl==2.0.0+cu121
+jarvis-tools==2026.1.10
+numpy==1.26.4
+pandas==2.3.3
+scikit-learn==1.7.2
+catboost==1.2.10
+spglib==2.7.0
+pydantic==2.12.5
+pydantic-settings==2.13.1
+matplotlib==3.10.6
+ase==3.27.0
+pymatgen==2025.10.7
+lmdb==1.7.5
+scipy==1.15.3
+tqdm==4.67.3
+networkx==3.4.2
+torchdata==0.7.1

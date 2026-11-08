@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "patience": 10,
+  "stopped": true,
+  "stopped_epoch": 27,
+  "best_loss": 1.0809736847877502,
+  "epochs_without_improvement": 10,
+  "epochs_completed": 28
+}

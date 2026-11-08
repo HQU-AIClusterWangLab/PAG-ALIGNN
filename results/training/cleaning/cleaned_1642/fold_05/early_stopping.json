@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "patience": 50,
+  "stopped": true,
+  "stopped_epoch": 63,
+  "best_loss": 0.23978579067625105,
+  "best_model_selection": "target_column",
+  "best_model_target": "eta_parallel",
+  "best_model_selection_excludes_auxiliary_targets": true,
+  "best_model_selection_uses_sample_weights": true,
+  "best_model_selection_uses_eta_underestimate_penalty": true,
+  "epochs_without_improvement": 50,
+  "epochs_completed": 64
+}
